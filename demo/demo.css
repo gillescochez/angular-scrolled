@@ -1,0 +1,18 @@
+#wrap {
+    height: 350px;
+    width: 350px;
+    overflow: auto;
+}
+.item {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    float: left;
+}
+#wrap > .item {
+    width: 100px;
+    height: 100px;
+}
+#doc > .item {
+    width: 400px;
+    height: 400px;
+}

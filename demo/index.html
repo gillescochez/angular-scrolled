@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<link rel="stylesheet" href="demo.css" />
+
+<script src="dependencies/angular/angular.min.js"></script>
+<script src="angular-scrolled.min.js"></script>
+
+<body ng-controller="demo" id="wrapper">
+
+    <p>In a element (no threshold) <input type="checkbox" ng-model="enabled" /> Enabled</p>
+    <div id="wrap" scrolled="more()" scrolled-enabled="{{enabled}}">
+        <div ng-repeat="item in items" class="item">
+            {{item.name}}
+        </div>
+    </div>
+
+    <p>On the document (threshold 200)</p>
+    <div id="doc" scrolled="windowMore()" scrolled-window="true" scrolled-threshold="200">
+        <div ng-repeat="item in windowItems" class="item">
+            {{item.name}}
+        </div>
+    </div>
+
+    <script src="demo.js"></script>
+</body>
+</html>
