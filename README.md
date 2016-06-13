@@ -1,6 +1,8 @@
 # Angular scrolled
 
-Angular scrolled in an infinite scrolling directive which trigger a scope function when the user scroll down.
+Angular scrolled in an infinite scrolling directive which trigger a scope function when the user scroll to the end.
+
+*Doesn't require jQuery.*
 
 ## Usage
 
