@@ -2,6 +2,7 @@ angular.module('app', ['angular-scrolled']).controller('demo', function ($scope)
 
     $scope.items = [];
     $scope.windowItems = [];
+    $scope.hItems = [];
 
     $scope.enabled = true;
 
@@ -25,7 +26,18 @@ angular.module('app', ['angular-scrolled']).controller('demo', function ($scope)
         }
     };
 
+    $scope.hMore = function () {
+
+        var i = 0;
+        var limit = 20;
+
+        for (; i < limit; i++) {
+            $scope.hItems.push({name:'item ' + ($scope.hItems.length + 1)});
+        }
+    };
+
     $scope.more();
     $scope.windowMore();
+    $scope.hMore();
 
 });

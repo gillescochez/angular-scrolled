@@ -56,4 +56,23 @@ describe("angular-scrolled", function() {
             });
         });
     });
+
+    describe("horizontal scrolling", function() {
+
+        it("should load more items when the element is scrolled to the right", function() {
+
+            var count = 0;
+
+            element.all(by.css("#wrap-horizontal > .item")).then(function(items) {
+                count = items.length;
+            });
+
+            browser.executeScript("document.getElementById('wrap-horizontal').scrollTop = 1000;").then(function() {
+                element.all(by.css("#wrap-horizontal > .item")).then(function(items) {
+                    expect(items.length).toEqual(count * 2);
+                });
+            });
+        });
+    });
+
 });

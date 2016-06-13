@@ -1,6 +1,7 @@
 # Angular scrolled
 
 Angular scrolled in an infinite scrolling directive which trigger a scope function when the user scroll to the end.
+It supports both vertical and horizontal scrolling.
 
 *Doesn't require jQuery.*
 
@@ -38,6 +39,10 @@ See the demo app for examples on how to use all options.
 
 ## Options
 
+### scrolled-direction (default: vertical)
+
+Set the direction of the scrolling. Can be changed dynamically.
+
 ### scrolled-threshold (default: 0)
 
 How far from the end of the scrolling area should the function be triggered. Can be changed dynamically.
@@ -61,5 +66,4 @@ To run the tests have the demo up and running and then run the ```npm run protra
 
 ## TODO
 
-* Support horizontal scrolling
 * More tests

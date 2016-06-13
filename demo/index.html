@@ -15,6 +15,15 @@
         </div>
     </div>
 
+    <p>Horizontal scrolling</p>
+    <div id="wrap-horizontal" scrolled="hMore()" scrolled-direction="horizontal">
+        <div style="width: {{hItems.length * 50}}px;">
+            <div ng-repeat="item in hItems" class="item">
+                {{item.name}}
+            </div>
+        </div>
+    </div>
+
     <p>On the document (threshold 200)</p>
     <div id="doc" scrolled="windowMore()" scrolled-window="true" scrolled-threshold="200">
         <div ng-repeat="item in windowItems" class="item">

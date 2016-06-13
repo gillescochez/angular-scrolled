@@ -4,6 +4,9 @@ angular.module("angular-scrolled", []).directive("scrolled", ["$window", functio
 
         link: function(scope, element, attrs) {
 
+            // direction to use. Default to vertical scrolling
+            var direction = attrs.scrolledDirection || "vertical";
+
             // set the threshold. Default to 0 if not specified
             var threshold = parseInt(attrs.scrolledThreshold) || 0;
 
@@ -18,11 +21,24 @@ angular.module("angular-scrolled", []).directive("scrolled", ["$window", functio
 
             // function to check if the trigger point has been reached
             var canTrigger = useWindow ? function() {
+
                 var doc = document.documentElement;
-                return enabled && ((doc.offsetHeight - $window.innerHeight) - ($window.pageYOffset - (doc.clientTop || 0)) <= threshold);
+
+                if (direction === "vertical") {
+                    return enabled && ((doc.offsetHeight - $window.innerHeight) - ($window.pageYOffset - (doc.clientTop || 0)) <= threshold);
+                } else {
+                    return enabled && ((doc.offsetWidth - $window.innerWidth) - ($window.pageXOffset - (doc.clientLeft || 0)) <= threshold);
+                }
+
             } : function() {
+
                 var raw = element[0];
-                return enabled && (raw.scrollTop + raw.offsetHeight >= raw.scrollHeight - threshold);
+
+                if (direction === "vertical") {
+                    return enabled && (raw.scrollTop + raw.offsetHeight >= raw.scrollHeight - threshold);
+                } else {
+                    return enabled && (raw.scrollLeft + raw.offsetWidth >= raw.scrollWidth - threshold);
+                }
             };
 
             // our event handler
@@ -43,6 +59,11 @@ angular.module("angular-scrolled", []).directive("scrolled", ["$window", functio
             // allow enabled state to be changed dynamically
             attrs.$observe("scrolledEnabled", function(value) {
                 enabled = scope.$eval(value);
+            });
+
+            // allow enabled state to be changed dynamically
+            attrs.$observe("scrolledDirection", function(value) {
+                direction = value;
             });
 
             // remove the event handler when the scope is destroyed
