@@ -1,6 +1,6 @@
 {
     "name": "angular-scrolled",
-    "description": "angular-scrolled",
+    "description": "Infinite scrolling directive - vertical/horizontal - no jquery",
     "version": "0.1.0",
     "homepage": "https://github.com/gillescochez/angular-scrolled",
     "dependencies": {
